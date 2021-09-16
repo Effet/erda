@@ -71,7 +71,7 @@ func getEdgeTime(issues []apistructs.Issue) (eMin, eMax *time.Time) {
 	//if edgeMinTime == nil && edgeMaxTime == nil {
 	tmp1 := nowDate.AddDate(0, 0, -15)
 	edgeMinTime = &tmp1
-	tmp2 := nowDate.AddDate(0, 0, 10)
+	tmp2 := nowDate.AddDate(0, 0, 30)
 	edgeMaxTime = &tmp2
 	//} else if edgeMinTime == nil {
 	//	tmp := edgeMaxTime.AddDate(0, 0, -24)
@@ -98,7 +98,7 @@ func (g *Gantt) genProps(edgeMinTime, edgeMaxTime *time.Time) {
 		RowKey:  "id",
 		// ClassName: "task-gantt-table",
 		Columns: []gantt.PropColumn{
-			{Title: "处理人", DataIndex: "user", Width: 160},
+			{Title: "处理人", DataIndex: "user", Width: 100},
 			{Title: "标题", DataIndex: "issues",
 				TitleTip: []string{
 					"事项的甘特图只有确保正确输入截止日期、预计时间才能正常显示",
@@ -106,6 +106,7 @@ func (g *Gantt) genProps(edgeMinTime, edgeMaxTime *time.Time) {
 					"#blue#蓝色#>blue#：代表从事项开始时间到当前/事项完成日期的时间段",
 					"#red#红色#>red#：代表截止日期到当前/事项完成日期的超时时间段",
 				},
+				Width: 200,
 			},
 		}}
 	ganColumn := gantt.PropColumn{Title: "甘特图", DataIndex: "dateRange", TitleRenderType: "gantt", Width: 800}
