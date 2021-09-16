@@ -98,7 +98,7 @@ func (g *Gantt) genProps(edgeMinTime, edgeMaxTime *time.Time) {
 		RowKey:  "id",
 		// ClassName: "task-gantt-table",
 		Columns: []gantt.PropColumn{
-			{Title: "处理人", DataIndex: "user", Width: 100},
+			{Title: "处理人", DataIndex: "user", Width: 100, Fixed: "left"},
 			{Title: "标题", DataIndex: "issues",
 				TitleTip: []string{
 					"事项的甘特图只有确保正确输入截止日期、预计时间才能正常显示",
@@ -107,9 +107,10 @@ func (g *Gantt) genProps(edgeMinTime, edgeMaxTime *time.Time) {
 					"#red#红色#>red#：代表截止日期到当前/事项完成日期的超时时间段",
 				},
 				Width: 200,
+				Fixed: "left",
 			},
 		}}
-	ganColumn := gantt.PropColumn{Title: "甘特图", DataIndex: "dateRange", TitleRenderType: "gantt", Width: 800}
+	ganColumn := gantt.PropColumn{Title: "甘特图", DataIndex: "dateRange", TitleRenderType: "gantt", Width: 1440}
 	data := g.genGanPropColumn(edgeMinTime, edgeMaxTime)
 	ganColumn.Data = data
 	props.Columns = append(props.Columns, ganColumn)

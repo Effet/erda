@@ -48,6 +48,7 @@ type PropColumn struct {
 	TitleRenderType string           `json:"titleRenderType,omitempty"`
 	DataIndex       string           `json:"dataIndex,omitempty"`
 	Width           uint64           `json:"width,omitempty"`
+	Fixed           string           `json:"fixed,omitempty"`
 	Data            []PropColumnData `json:"data,omitempty"`
 	TitleTip        []string         `json:"titleTip,omitempty"`
 }
