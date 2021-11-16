@@ -17,6 +17,7 @@ on: [push, delete]
 
 jobs:
   build:
+    if: github.repository == 'erda-project/erda'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
