@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: unshallow
+        run: git fetch --unshallow origin
       - name: add remote
         run: git remote add mirror https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@erda.hkci.terminus.io/erda/dop/dice-dop-apis/erda
       - name: push
