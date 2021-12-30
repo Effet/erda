@@ -1,15 +1,11 @@
 {
   "body": [
     {
-      "pattern": "Bad",
-      "message": "Bad"
-    },
-    {
-      "pattern": "\\|.*中文.*\\|.*[^\\s]*.*\\|",
+      "pattern": "\\|[^\\|]*中文[^\\|]*\\|[^\\|]*[^\\|\\s]+[^\\|]*\\|",
       "message": "You need fulfil chinese changelog"
     },
     {
-      "pattern": "\\|.*English.*\\|.*[^\\s]*.*\\|",
+      "pattern": "\\|[^\\|]*English[^\\|]*\\|[^\\|]*[^\\|\\s]+[^\\|]*\\|",
       "message": "You need fulfil english changelog"
     }
   ]
