@@ -1,6 +1,10 @@
 {
   "body": [
     {
+      "pattern": "Bad",
+      "message": "Bad"
+    },
+    {
       "pattern": "\\|.*中文.*\\|.*[^\\s]*.*\\|",
       "message": "You need fulfil chinese changelog"
     },
