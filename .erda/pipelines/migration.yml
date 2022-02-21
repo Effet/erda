@@ -1,0 +1,23 @@
+version: "1.1"
+
+stages:
+  - stage:
+      - git-checkout:
+          alias: erda
+          params:
+            depth: 1
+  - stage:
+      - erda-mysql-migration:
+          alias: erda-mysql-migration
+          version: 1.0-57
+          params:
+            database: erda
+            lint_config: .erda/migrations/config.yml
+            migrationdir: .erda/migrations
+            mysql_host: ${{ configs.lagacy_migration_mysql_host }}
+            mysql_password: ${{ configs.lagacy_migration_mysql_password }}
+            mysql_port: 3306
+            mysql_username: root
+            retry_timeout: 150
+            skip_pre_migration: true
+            workdir: ${{ dirs.erda }}
