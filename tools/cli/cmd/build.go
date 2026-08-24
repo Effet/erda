@@ -105,11 +105,11 @@ func applicationBranches(dir string) []string {
 
 // Create an pipeline and run it
 func PipelineRun(ctx *command.Context, filename, branch string, watch bool) error {
-	// 1. check if .git dir exists in current directory
+	// 1. check if current directory is inside a Git work tree
 	// 2. parse current branch
 	// 3. create pipeline, run it
-	gitDir, err := os.Stat(".git")
-	if err != nil || !gitDir.IsDir() {
+	gitRepo, err := utils.IsWorkspaceGitRepository(".")
+	if err != nil || !gitRepo {
 		return errors.New("Current directory is not a local git repository")
 	}
 
